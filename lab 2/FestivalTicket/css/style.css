@@ -42,6 +42,10 @@ div{
   grid-row: 1 / span 4;
 }
 
+.qr img{
+  width:80%;
+}
+
 .date, .admit,  .ticket{
   border-left: black solid 1px;
   font-size: 30px;
@@ -63,10 +67,46 @@ div{
 @media (max-width: 1300px) {
   main{
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 80px 50px 200px 50px 50px;
+    grid-template-rows: 80px 50px 500px 50px 50px;
   }
 
   .frustrated{
     display: none;
+  }
+
+  .weareimd{
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    background:black;
+    color:white;
+    border:none;
+  }
+
+  .qr{
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 1;
+  }
+
+  .qr img{
+    height: 75%;
+    width: auto;
+  }
+
+  .live{
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    color:white;
+    background: black;
+    border:none;
+  }
+
+  .admit{
+    border-right: black solid 1px;
+  }
+
+  .ticket{
+    grid-column: 1 / span 2;
+    grid-row: 5 / span 1;
+    border: 1px solid black;
   }
 }
