@@ -3,9 +3,10 @@ nav ul{
   flex-wrap: wrap;
 }
 
-nav ul li.logo{
+nav ul li.logo h2{
   display: block;
   width:100%;
+  order:1;
 }
 
 nav ul li{
@@ -14,4 +15,18 @@ nav ul li{
   order:2;
   justify-content: space-around;
   text-align: center;
+}
+
+#photos{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div{
+  justify-content: space-around;
+  flex: 1 0 200px;
+}
+
+@media (min-width:800px) {
+  
 }
