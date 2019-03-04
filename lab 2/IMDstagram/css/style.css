@@ -4,7 +4,7 @@ nav ul{
 }
 
 nav ul li.logo{
-  display: block;
+  flex: 1 0 100vw;
   width:100%;
   order:1;
 }
@@ -30,6 +30,10 @@ div{
 }
 
 @media (min-width:800px) {
+  nav ul li.logo{
+    flex: 1 0 200px;
+  }
+
   nav ul li.ui, nav ul li.typography{
     order:1;
   }
