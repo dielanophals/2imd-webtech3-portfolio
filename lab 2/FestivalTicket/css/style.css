@@ -59,3 +59,14 @@ div{
 .qr{
   border: black solid 1px;
 }
+
+@media (max-width: 1300px) {
+  main{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 80px 50px 200px 50px 50px;
+  }
+
+  .frustrated{
+    display: none;
+  }
+}
