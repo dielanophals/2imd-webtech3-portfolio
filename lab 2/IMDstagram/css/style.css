@@ -7,6 +7,9 @@ nav ul li.logo{
   flex: 1 0 100vw;
   width:100%;
   order:1;
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom:20px;
 }
 
 nav ul li{
@@ -29,7 +32,7 @@ div{
   padding:10px;
 }
 
-@media (min-width:800px) {
+@media (min-width:900px) {
   nav ul li.logo{
     flex: 1 0 200px;
   }
