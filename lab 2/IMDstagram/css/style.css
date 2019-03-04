@@ -3,7 +3,7 @@ nav ul{
   flex-wrap: wrap;
 }
 
-nav ul li.logo h2{
+nav ul li.logo{
   display: block;
   width:100%;
   order:1;
@@ -26,8 +26,19 @@ div{
   justify-content: space-around;
   flex: 1 0 200px;
   text-align: center;
+  padding:10px;
 }
 
 @media (min-width:800px) {
+  nav ul li.ui, nav ul li.typography{
+    order:1;
+  }
 
+  nav ul li.logo{
+    order:2;
+  }
+
+  nav ul li.branding, nav ul li.graffiti{
+    order:3;
+  }
 }
