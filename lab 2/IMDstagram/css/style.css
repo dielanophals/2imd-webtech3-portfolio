@@ -1,0 +1,17 @@
+nav ul{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+nav ul li.logo{
+  display: block;
+  width:100%;
+}
+
+nav ul li{
+  list-style: none;
+  flex: 1 0 150px;
+  order:2;
+  justify-content: space-around;
+  text-align: center;
+}
