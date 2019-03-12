@@ -68,6 +68,7 @@ class App {
 
   reset(){
     // this function should reset the form
+    document.getElementById('txtAddNote').value = "";
   }
 
 }
