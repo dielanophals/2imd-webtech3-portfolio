@@ -10,7 +10,6 @@ class Note {
     newNote.classList.add("card");
     newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    document.querySelector(".notes").appendChild(newNote);
 
     return newNote;
   }
@@ -18,6 +17,8 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+    document.querySelector(".notes").appendChild(this.element);
+
   }
 
   saveToStorage(){
