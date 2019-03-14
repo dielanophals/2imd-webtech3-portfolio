@@ -10,6 +10,7 @@ class Note {
     newNote.classList.add("card");
     newNote.innerHTML = `<p>${this.title}</p><a href="#" class="card-remove">Remove</a>`;
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    newNote.querySelector("a").addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
   }
@@ -18,7 +19,6 @@ class Note {
     // HINT🤩
     // this function should append the note to the screen somehow
     document.querySelector(".notes").appendChild(this.element);
-
   }
 
   saveToStorage(){
@@ -31,6 +31,7 @@ class Note {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
     console.log("weg");
+    this.style.display = "none";
   }
 }
 
