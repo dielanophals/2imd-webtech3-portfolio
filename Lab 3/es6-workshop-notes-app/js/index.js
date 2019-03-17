@@ -43,6 +43,10 @@ class Note {
     // in this function, 'this' will refer to the current note element
     console.log("weg");
     this.style.display = "none";
+
+    let notesInStorage = JSON.parse(localStorage.getItem("notes"));
+    notesInStorage.splice(1);
+    localStorage.setItem("notes", JSON.stringify(notesInStorage));
   }
 }
 
