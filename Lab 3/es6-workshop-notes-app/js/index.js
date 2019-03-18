@@ -50,7 +50,7 @@ class Note {
 
     let deleteNote = JSON.parse(localStorage.getItem("notes"));
 
-    for(var i = deleteNote.length-1; i >= 0; i--){  // STEP 1
+    for(let i = deleteNote.length-1; i >= 0; i--){  // STEP 1
         if(deleteNote[i] == remove){              // STEP 2
             deleteNote.splice(i,1);                 // STEP 3
         }
