@@ -63,13 +63,14 @@ class Dog {
 
   getDog(){
     // AJAX call / XHR
-    let url = `https://dog.ceo/api/breed/Beagle/images`;
+    let url = `https://dog.ceo/api/breed/Beagle/images/random`;
     fetch(url)
     .then(response => {
       return response.json();
     })
     .then(json => {
       console.log(json.message);
+      document.getElementById('pic').src = json.message;
     });
   }
 
