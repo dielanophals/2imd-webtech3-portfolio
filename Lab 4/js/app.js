@@ -42,6 +42,7 @@ class Wheater {
       })
       .then(json => {
         console.log(json.currently.summary);
+        document.getElementById('weather').innerHTML += `<h1>${json.currently.summary}</h1>`;
       });
     }
 
