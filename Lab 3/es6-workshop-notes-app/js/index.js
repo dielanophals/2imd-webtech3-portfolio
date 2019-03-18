@@ -44,10 +44,21 @@ class Note {
     console.log("weg");
     this.style.display = "none";
 
-    let notesInStorage = JSON.parse(localStorage.getItem("notes"));
-    notesInStorage.splice(1);
-    localStorage.setItem("notes", JSON.stringify(notesInStorage));
-  }
+    let remove = this.querySelector("a").previousSibling.innerHTML;
+
+    console.log(remove);
+
+    let deleteNote = JSON.parse(localStorage.getItem("notes"));
+
+    for(var i = deleteNote.length-1; i >= 0; i--){  // STEP 1
+        if(deleteNote[i] == remove){              // STEP 2
+            deleteNote.splice(i,1);                 // STEP 3
+        }
+    }
+    console.log(deleteNote);
+    localStorage.setItem("notes", JSON.stringify(deleteNote));
+
+    }
 }
 
 class App {
