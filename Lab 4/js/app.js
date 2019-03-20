@@ -49,31 +49,3 @@ class Wheater {
 }
 
 let app = new Wheater('055622cc09065af76c5a531722f24c38');
-
-
-class Dog {
-
-  constructor(API_KEY){
-    this.initialize();
-  }
-
-  initialize() {
-    this.getDog();
-  }
-
-  getDog(){
-    // AJAX call / XHR
-    let url = `https://dog.ceo/api/breed/Beagle/images/random`;
-    fetch(url)
-    .then(response => {
-      return response.json();
-    })
-    .then(json => {
-      console.log(json.message);
-      document.getElementById('pic').src = json.message;
-    });
-  }
-
-}
-
-let dog = new Dog();
