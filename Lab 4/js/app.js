@@ -17,6 +17,7 @@ class Wheater {
 
     initialize() {
         this.getMyLocation();
+        this.getYoga();
     }
 
     getMyLocation(){
@@ -43,6 +44,18 @@ class Wheater {
       .then(json => {
         console.log(json.currently.summary);
         document.getElementById('weather').innerHTML += `<h1>${json.currently.summary}</h1>`;
+      });
+    }
+
+    getYoga(){
+      let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
+      fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(json => {
+        console.log(json);
+        // document.getElementById('weather').innerHTML += `<h1>${json.sanskrit_name}</h1>`;
       });
     }
 
