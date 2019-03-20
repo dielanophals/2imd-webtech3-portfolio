@@ -22,24 +22,25 @@ class Wheater {
 
     getMyLocation(){
         console.log("Getting location 🚀");
-        navigator.geolocation.getCurrentPosition(position => {
-            console.log("found you");
-            console.log(position);
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-            this.getWeather(lat, lng);
+        let localWeather = JSON.parse(localStorage.getItem("weather"));
+        if(localWeather){
+          document.getElementById('weather').innerHTML += `<h1>${JSON.parse(localStorage.getItem("weather"))}</h1>`;
+        }else{
+          navigator.geolocation.getCurrentPosition(position => {
+              console.log("found you");
+              console.log(position);
+              let lat = position.coords.latitude;
+              let lng = position.coords.longitude;
+              this.getWeather(lat, lng);
 
-        }, err => {
-            console.log(err);
-        });
+          }, err => {
+              console.log(err);
+          });
+        }
     }
 
     getWeather(lat, lng){
       // AJAX call / XHR
-      let localWeather = JSON.parse(localStorage.getItem("weather"));
-      if(localWeather){
-        document.getElementById('weather').innerHTML += JSON.parse(localStorage.getItem("weather"));
-      }else{
         let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}`;
         fetch(url)
         .then(response => {
@@ -50,7 +51,6 @@ class Wheater {
           document.getElementById('weather').innerHTML += `<h1>${json.currently.summary}</h1>`;
           localStorage.setItem("weather", JSON.stringify(json.currently.summary));
         });
-      }
     }
 
     getYoga(){
