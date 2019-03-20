@@ -49,19 +49,26 @@ class Wheater {
     }
 
     getYoga(){
-      let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
-      fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then(json => {
-        let random = Math.floor((Math.random() * 48));
-        document.getElementById('pic').src = json[random].img_url;
-        document.getElementById('yoga').innerHTML += json[random].sanskrit_name;
-        // document.getElementById('weather').innerHTML += `<h1>${json.sanskrit_name}</h1>`;
-        localStorage.setItem("pic", JSON.stringify(json[random].img_url));
-        localStorage.setItem("yoga", JSON.stringify(json[random].sanskrit_name));
-      });
+      let localYoga = JSON.parse(localStorage.getItem("pic"));
+      if(localYoga){
+        console.log("niks");
+        document.getElementById('pic').src = JSON.parse(localStorage.getItem("pic"));
+        document.getElementById('yoga').innerHTML += JSON.parse(localStorage.getItem("yoga"));
+      }else{
+        let url = `https://raw.githubusercontent.com/rebeccaestes/yoga_api/master/yoga_api.json`;
+        fetch(url)
+        .then(response => {
+          return response.json();
+        })
+        .then(json => {
+          let random = Math.floor((Math.random() * 48));
+          document.getElementById('pic').src = json[random].img_url;
+          document.getElementById('yoga').innerHTML += json[random].sanskrit_name;
+          // document.getElementById('weather').innerHTML += `<h1>${json.sanskrit_name}</h1>`;
+          localStorage.setItem("pic", JSON.stringify(json[random].img_url));
+          localStorage.setItem("yoga", JSON.stringify(json[random].sanskrit_name));
+        });
+      }
     }
 
 }
