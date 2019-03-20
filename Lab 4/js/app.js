@@ -54,7 +54,7 @@ class Wheater {
         return response.json();
       })
       .then(json => {
-        console.log(json);
+        document.getElementById('pic').src = json[13].img_url;
         // document.getElementById('weather').innerHTML += `<h1>${json.sanskrit_name}</h1>`;
       });
     }
