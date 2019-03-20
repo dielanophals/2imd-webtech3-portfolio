@@ -1,3 +1,15 @@
+body{
+  background:lightgreen;
+}
+
+.watch{
+  width:300px;
+  margin:auto;
+  text-align: center;
+  background-color: lightblue;
+  padding:30px;
+}
+
 img{
   width:300px;
 }
