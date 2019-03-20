@@ -36,22 +36,27 @@ class Wheater {
 
     getWeather(lat, lng){
       // AJAX call / XHR
-      let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}`;
-      fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then(json => {
-        console.log(json.currently.summary);
-        document.getElementById('weather').innerHTML += `<h1>${json.currently.summary}</h1>`;
-        localStorage.setItem("weather", JSON.stringify(json.currently.summary));
-      });
+      let localWeather = JSON.parse(localStorage.getItem("weather"));
+      if(localWeather){
+        document.getElementById('weather').innerHTML += JSON.parse(localStorage.getItem("weather"));
+      }else{
+        let url = `http://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.API_KEY}/${lat},${lng}`;
+        fetch(url)
+        .then(response => {
+          return response.json();
+        })
+        .then(json => {
+          console.log(json.currently.summary);
+          document.getElementById('weather').innerHTML += `<h1>${json.currently.summary}</h1>`;
+          localStorage.setItem("weather", JSON.stringify(json.currently.summary));
+        });
+      }
     }
 
     getYoga(){
       let localYoga = JSON.parse(localStorage.getItem("pic"));
       if(localYoga){
-        console.log("niks");
+        console.log("storage");
         document.getElementById('pic').src = JSON.parse(localStorage.getItem("pic"));
         document.getElementById('yoga').innerHTML += JSON.parse(localStorage.getItem("yoga"));
       }else{
