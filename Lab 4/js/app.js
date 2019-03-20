@@ -44,6 +44,7 @@ class Wheater {
       .then(json => {
         console.log(json.currently.summary);
         document.getElementById('weather').innerHTML += `<h1>${json.currently.summary}</h1>`;
+        localStorage.setItem("weather", JSON.stringify(json.currently.summary));
       });
     }
 
@@ -58,6 +59,8 @@ class Wheater {
         document.getElementById('pic').src = json[random].img_url;
         document.getElementById('yoga').innerHTML += json[random].sanskrit_name;
         // document.getElementById('weather').innerHTML += `<h1>${json.sanskrit_name}</h1>`;
+        localStorage.setItem("pic", JSON.stringify(json[random].img_url));
+        localStorage.setItem("yoga", JSON.stringify(json[random].sanskrit_name));
       });
     }
 
