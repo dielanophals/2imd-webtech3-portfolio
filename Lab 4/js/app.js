@@ -54,7 +54,9 @@ class Wheater {
         return response.json();
       })
       .then(json => {
-        document.getElementById('pic').src = json[13].img_url;
+        let random = Math.floor((Math.random() * 48));
+        document.getElementById('pic').src = json[random].img_url;
+        document.getElementById('yoga').innerHTML += json[random].sanskrit_name;
         // document.getElementById('weather').innerHTML += `<h1>${json.sanskrit_name}</h1>`;
       });
     }
